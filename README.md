@@ -111,15 +111,15 @@
       <option value="YAMAHA">Yamaha</option>
       <option value="HONDA">Honda</option>
       <option value="GILERA">Gilera</option>
-      <option value="ZANELLA">Yamaha</option>
-      <option value="MOTOMEL">Yamaha</option>
-      <option value="CORVEN">Yamaha</option>
-      <option value="KELLER">Yamaha</option>
-      <option value="CERRO">Yamaha</option>
-      <option value="BRAVA">Yamaha</option>
-      <option value="RUOSER">Yamaha</option>
-      <option value="HERO">Yamaha</option>
-      <option value="TVS">Yamaha</option>
+      <option value="ZANELLA">ZANELLA</option>
+      <option value="MOTOMEL">MOTOMEL</option>
+      <option value="CORVEN">CORVEN</option>
+      <option value="KELLER">KELLER</option>
+      <option value="CERRO">CERRO</option>
+      <option value="BRAVA">BRAVA</option>
+      <option value="RUOSER">ROUSER</option>
+      <option value="HERO">HERO</option>
+      <option value="TVS">TVS</option>
     </select>
 
     <select id="tipoFiltro">
@@ -146,11 +146,11 @@
     <p>Ingresa el valor de la moto y selecciona meses:</p>
     <input type="number" id="monto" placeholder="Valor de la moto" />
     <select id="cuotas">
-      <option value="6">6 meses</option>
-      <option value="8">6 meses</option>
+      <option value="6">6 Meses</option>
+      <option value="8">8 Meses</option>
       <option value="12">12 meses</option>
-      <option value="18">6 meses</option>
-      <option value="24">24 meses</option>
+      <option value="18">18 Meses</option>
+      <option value="24">24 Meses</option>
     </select>
     <button class="btn" onclick="simular()">Calcular</button>
     <p id="resultado"></p>
@@ -227,7 +227,7 @@
     function simular() {
       const monto = parseFloat(document.getElementById("monto").value);
       const cuotas = parseInt(document.getElementById("cuotas").value);
-      const tasa = 0,05; // 15% mensual
+      const tasa = 05; // 15% mensual
       if (isNaN(monto)) {
         document.getElementById("resultado").innerText = "Por favor ingresa un monto válido.";
         return;
