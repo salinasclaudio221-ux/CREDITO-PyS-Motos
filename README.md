@@ -94,7 +94,7 @@
 <body>
 
   <header>
-    <h1>Motos Azul</h1>
+    <h1>Motos</h1>
     <p>Comercialización, modelos y financiamiento</p>
   </header>
 
@@ -108,9 +108,18 @@
   <section class="filtros">
     <select id="marcaFiltro">
       <option value="">Todas las marcas</option>
-      <option value="Yamaha">Yamaha</option>
-      <option value="Honda">Honda</option>
-      <option value="Gilera">Gilera</option>
+      <option value="YAMAHA">Yamaha</option>
+      <option value="HONDA">Honda</option>
+      <option value="GILERA">Gilera</option>
+      <option value="ZANELLA">Yamaha</option>
+      <option value="MOTOMEL">Yamaha</option>
+      <option value="CORVEN">Yamaha</option>
+      <option value="KELLER">Yamaha</option>
+      <option value="CERRO">Yamaha</option>
+      <option value="BRAVA">Yamaha</option>
+      <option value="RUOSER">Yamaha</option>
+      <option value="HERO">Yamaha</option>
+      <option value="TVS">Yamaha</option>
     </select>
 
     <select id="tipoFiltro">
@@ -122,9 +131,9 @@
 
     <select id="precioFiltro">
       <option value="">Todos los precios</option>
-      <option value="bajo">Menos de $5,000</option>
-      <option value="medio">$5,000 - $8,000</option>
-      <option value="alto">Más de $8,000</option>
+      <option value="bajo">Menos de $2.000.000,00</option>
+      <option value="medio">$3.000.000,00 - $6.000.000,00</option>
+      <option value="alto">Más de $6.000.000,00</option>
     </select>
   </section>
 
@@ -138,7 +147,9 @@
     <input type="number" id="monto" placeholder="Valor de la moto" />
     <select id="cuotas">
       <option value="6">6 meses</option>
+      <option value="8">6 meses</option>
       <option value="12">12 meses</option>
+      <option value="18">6 meses</option>
       <option value="24">24 meses</option>
     </select>
     <button class="btn" onclick="simular()">Calcular</button>
@@ -155,15 +166,15 @@
         nombre: "Yamaha FZ",
         marca: "Yamaha",
         tipo: "Deportiva",
-        precio: 5500,
-        imagen: "https://via.placeholder.com/300x200?text=Yamaha+MT03"
+        precio: "$5.890.000,00",
+        imagen: "https://via.placeholder.com/300x200?text=Yamaha+FZ"
       },
       {
         nombre: "Honda Tornado 300 L",
         marca: "Honda",
         tipo: "Enduro",
-        precio: 10.890.000,00,
-        imagen: "https://via.placeholder.com/300x200?text=Honda+CB500F"
+        precio: *$10.890.000,00*,
+        imagen: "https://via.placeholder.com/300x200?text=Honda+300L"
       },
       {
         nombre: "Suzuki ax 100",
