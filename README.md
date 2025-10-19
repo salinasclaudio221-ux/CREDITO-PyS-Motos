@@ -110,7 +110,7 @@
       <option value="">Todas las marcas</option>
       <option value="Yamaha">Yamaha</option>
       <option value="Honda">Honda</option>
-      <option value="Suzuki">Suzuki</option>
+      <option value="Gilera">Gilera</option>
     </select>
 
     <select id="tipoFiltro">
@@ -146,37 +146,37 @@
   </section>
 
   <footer id="contacto">
-    <p>&copy; 2025 Motos Azul. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Motos. Todos los derechos reservados.</p>
   </footer>
 
   <script>
     const motos = [
       {
-        nombre: "Yamaha MT-03",
+        nombre: "Yamaha FZ",
         marca: "Yamaha",
         tipo: "Deportiva",
         precio: 5500,
         imagen: "https://via.placeholder.com/300x200?text=Yamaha+MT03"
       },
       {
-        nombre: "Honda CB 500F",
+        nombre: "Honda Tornado 300 L",
         marca: "Honda",
-        tipo: "Urbana",
-        precio: 6200,
+        tipo: "Enduro",
+        precio: 10.890.000,00,
         imagen: "https://via.placeholder.com/300x200?text=Honda+CB500F"
       },
       {
-        nombre: "Suzuki V-Strom 650",
+        nombre: "Suzuki ax 100",
         marca: "Suzuki",
-        tipo: "Adventure",
-        precio: 8500,
+        tipo: "Cub",
+        precio: 2.780.000,00,
         imagen: "https://via.placeholder.com/300x200?text=Suzuki+VStrom+650"
       },
       {
-        nombre: "Honda CBR 500R",
+        nombre: "Honda GLH",
         marca: "Honda",
         tipo: "Deportiva",
-        precio: 7300,
+        precio: 5.920.000,00,
         imagen: "https://via.placeholder.com/300x200?text=Honda+CBR+500R"
       }
     ];
@@ -216,7 +216,7 @@
     function simular() {
       const monto = parseFloat(document.getElementById("monto").value);
       const cuotas = parseInt(document.getElementById("cuotas").value);
-      const tasa = 0.05; // 5% mensual
+      const tasa = 0,05; // 15% mensual
       if (isNaN(monto)) {
         document.getElementById("resultado").innerText = "Por favor ingresa un monto válido.";
         return;
