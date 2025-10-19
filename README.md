@@ -95,22 +95,22 @@
 
   <header>
     <h1>Motos</h1>
-    <p>Comercialización, modelos y financiamiento</p>
+    <p>Comercialización, Modelos y Financiamiento</p>
   </header>
 
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#financiamiento">Financiamiento</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#INICIO">INICIO</a>
+    <a href="#CATÁLOGO">CATÁLOGO</a>
+    <a href="#Financiamiento">Financiamiento</a>
+    <a href="#Contacto">Contacto</a>
   </nav>
 
   <section class="filtros">
     <select id="marcaFiltro">
       <option value="">Todas las marcas</option>
-      <option value="YAMAHA">Yamaha</option>
-      <option value="HONDA">Honda</option>
-      <option value="GILERA">Gilera</option>
+      <option value="YAMAHA">YAMAHA</option>
+      <option value="HONDA">HONDA</option>
+      <option value="GILERA">GILERA</option>
       <option value="ZANELLA">ZANELLA</option>
       <option value="MOTOMEL">MOTOMEL</option>
       <option value="CORVEN">CORVEN</option>
@@ -200,9 +200,9 @@
         return (!filtro.marca || moto.marca === filtro.marca) &&
                (!filtro.tipo || moto.tipo === filtro.tipo) &&
                (!filtro.precio || (
-                 filtro.precio === "bajo" && moto.precio < 5000 ||
-                 filtro.precio === "medio" && moto.precio >= 5000 && moto.precio <= 8000 ||
-                 filtro.precio === "alto" && moto.precio > 8000
+                 filtro.precio === "bajo" && moto.precio < 2.000000 ||
+                 filtro.precio === "medio" && moto.precio >= 2.000000 && moto.precio <= 6000000 ||
+                 filtro.precio === "alto" && moto.precio > 6000000
                ));
       });
 
@@ -227,7 +227,7 @@
     function simular() {
       const monto = parseFloat(document.getElementById("monto").value);
       const cuotas = parseInt(document.getElementById("cuotas").value);
-      const tasa = 05; // 15% mensual
+      const tasa = 15.7; // 15% mensual
       if (isNaN(monto)) {
         document.getElementById("resultado").innerText = "Por favor ingresa un monto válido.";
         return;
