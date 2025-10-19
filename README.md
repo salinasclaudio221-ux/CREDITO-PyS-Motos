@@ -1,71 +1,246 @@
-# CREDITO-PyS-Motos
-FINANCIACIÓN SIN REQUISITOS 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simulador de Crédito Personal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motos Azul - Catálogo y Financiamiento</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    header {
+      background-color: #0057B8;
+      color: white;
       padding: 20px;
+      text-align: center;
     }
-    .container {
-      max-width: 500px;
-      background: white;
-      margin: auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
+
+    nav {
+      background-color: #003f7f;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
     }
-    input, select, button {
-      width: 100%;
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .filtros {
+      padding: 20px;
+      background: #e6f2ff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .filtros select {
       padding: 10px;
-      margin: 10px 0;
-    }
-    .result {
-      background: #e1f5fe;
-      padding: 15px;
       border-radius: 5px;
-      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .moto {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .moto img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .btn {
+      background-color: #0057B8;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #003f7f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Simulador de Crédito Personal</h2>
 
-    <label for="amount">Monto del crédito ($):</label>
-    <input type="number" id="amount" placeholder="Ej. 10000" />
+  <header>
+    <h1>Motos Azul</h1>
+    <p>Comercialización, modelos y financiamiento</p>
+  </header>
 
-    <label for="rate">Tasa de interés anual (%):</label>
-    <input type="number" id="rate" placeholder="Ej. 12" />
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#financiamiento">Financiamiento</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-    <label for="term">Plazo (meses):</label>
-    <select id="term">
-      <option value="8">8 meses</option>
-      <option value="12">12 meses</option>
-      <option value="18">18 meses</option>
-      <option value="24">24 meses</option>
-      <option value="36">36 meses</option>
+  <section class="filtros">
+    <select id="marcaFiltro">
+      <option value="">Todas las marcas</option>
+      <option value="Yamaha">Yamaha</option>
+      <option value="Honda">Honda</option>
+      <option value="Suzuki">Suzuki</option>
     </select>
 
-    <button onclick="calcularCredito()">Calcular</button>
+    <select id="tipoFiltro">
+      <option value="">Todos los tipos</option>
+      <option value="Deportiva">Deportiva</option>
+      <option value="Urbana">Urbana</option>
+      <option value="Adventure">Adventure</option>
+    </select>
 
-    <div class="result" id="result" style="display:none;">
-      <p><strong>Cuota mensual:</strong> $<span id="cuota"></span></p>
-      <p><strong>Total pagado:</strong> $<span id="total"></span></p>
-      <p><strong>Total intereses:</strong> $<span id="intereses"></span></p>
-    </div>
-  </div>
+    <select id="precioFiltro">
+      <option value="">Todos los precios</option>
+      <option value="bajo">Menos de $5,000</option>
+      <option value="medio">$5,000 - $8,000</option>
+      <option value="alto">Más de $8,000</option>
+    </select>
+  </section>
+
+  <section class="catalogo" id="catalogo">
+    <!-- Las motos se generarán dinámicamente aquí -->
+  </section>
+
+  <section id="financiamiento" style="padding: 30px; text-align: center;">
+    <h2>Simulador de Financiamiento</h2>
+    <p>Ingresa el valor de la moto y selecciona meses:</p>
+    <input type="number" id="monto" placeholder="Valor de la moto" />
+    <select id="cuotas">
+      <option value="6">6 meses</option>
+      <option value="12">12 meses</option>
+      <option value="24">24 meses</option>
+    </select>
+    <button class="btn" onclick="simular()">Calcular</button>
+    <p id="resultado"></p>
+  </section>
+
+  <footer id="contacto">
+    <p>&copy; 2025 Motos Azul. Todos los derechos reservados.</p>
+  </footer>
 
   <script>
-    function calcularCredito() {
-      const monto = parseFloat(document.getElementById('amount').value);
-      const tasaAnual = parseFloat(document.getElementById('rate').value);
-      const plazoMeses = parseInt(document.getElementById('term').value);
+    const motos = [
+      {
+        nombre: "Yamaha MT-03",
+        marca: "Yamaha",
+        tipo: "Deportiva",
+        precio: 5500,
+        imagen: "https://via.placeholder.com/300x200?text=Yamaha+MT03"
+      },
+      {
+        nombre: "Honda CB 500F",
+        marca: "Honda",
+        tipo: "Urbana",
+        precio: 6200,
+        imagen: "https://via.placeholder.com/300x200?text=Honda+CB500F"
+      },
+      {
+        nombre: "Suzuki V-Strom 650",
+        marca: "Suzuki",
+        tipo: "Adventure",
+        precio: 8500,
+        imagen: "https://via.placeholder.com/300x200?text=Suzuki+VStrom+650"
+      },
+      {
+        nombre: "Honda CBR 500R",
+        marca: "Honda",
+        tipo: "Deportiva",
+        precio: 7300,
+        imagen: "https://via.placeholder.com/300x200?text=Honda+CBR+500R"
+      }
+    ];
 
-      if (i
-      
+    const catalogo = document.querySelector(".catalogo");
+
+    function mostrarMotos(filtro = {}) {
+      catalogo.innerHTML = "";
+      const filtradas = motos.filter(moto => {
+        return (!filtro.marca || moto.marca === filtro.marca) &&
+               (!filtro.tipo || moto.tipo === filtro.tipo) &&
+               (!filtro.precio || (
+                 filtro.precio === "bajo" && moto.precio < 5000 ||
+                 filtro.precio === "medio" && moto.precio >= 5000 && moto.precio <= 8000 ||
+                 filtro.precio === "alto" && moto.precio > 8000
+               ));
+      });
+
+      if (filtradas.length === 0) {
+        catalogo.innerHTML = "<p>No se encontraron motos con esos filtros.</p>";
+      } else {
+        filtradas.forEach(moto => {
+          catalogo.innerHTML += `
+            <div class="moto">
+              <img src="${moto.imagen}" alt="${moto.nombre}">
+              <h3>${moto.nombre}</h3>
+              <p>Marca: ${moto.marca}</p>
+              <p>Tipo: ${moto.tipo}</p>
+              <p>Precio: $${moto.precio.toLocaleString()}</p>
+              <a href="#financiamiento" class="btn">Ver Financiamiento</a>
+            </div>
+          `;
+        });
+      }
+    }
+
+    function simular() {
+      const monto = parseFloat(document.getElementById("monto").value);
+      const cuotas = parseInt(document.getElementById("cuotas").value);
+      const tasa = 0.05; // 5% mensual
+      if (isNaN(monto)) {
+        document.getElementById("resultado").innerText = "Por favor ingresa un monto válido.";
+        return;
+      }
+
+      const cuotaMensual = (monto * (1 + tasa * cuotas)) / cuotas;
+      document.getElementById("resultado").innerText = `Cuota mensual aproximada: $${cuotaMensual.toFixed(2)}`;
+    }
+
+    // Eventos de filtros
+    document.getElementById("marcaFiltro").addEventListener("change", filtrar);
+    document.getElementById("tipoFiltro").addEventListener("change", filtrar);
+    document.getElementById("precioFiltro").addEventListener("change", filtrar);
+
+    function filtrar() {
+      const marca = document.getElementById("marcaFiltro").value;
+      const tipo = document.getElementById("tipoFiltro").value;
+      const precio = document.getElementById("precioFiltro").value;
+      mostrarMotos({ marca, tipo, precio });
+    }
+
+    // Mostrar todas las motos al cargar
+    mostrarMotos();
+  </script>
+
+</body>
+</html>
